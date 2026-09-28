@@ -1,6 +1,7 @@
 # Downloaded upstream repositories and data are reproducible from the script.
 /external/
 /data/raw/pbp/
+/results/
 .venv/
 __pycache__/
 *.ipynb_checkpoints/
