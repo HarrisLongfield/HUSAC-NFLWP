@@ -10,6 +10,9 @@ This project uses the open-source `nflfastR` win probability model as a starting
 - `data/raw/pbp/` — one `play_by_play_<season>.parquet` file per season. These files are intentionally ignored by git.
 - `scripts/download_nflfastR_assets.sh` — repeatable bootstrap/download script.
 - `scripts/evaluate_wp.py` — scores the published `wp` and `vegas_wp` columns and writes Brier/log-loss/calibration results.
+- `notebooks/train_wp.ipynb` — end-to-end preprocessing, feature engineering, XGBoost training, evaluation, benchmarking, and artifact export.
+- `evals.py` — reusable BSS/AUC/KS metrics and expected-vs-actual calibration plot.
+- `artifacts/` — saved XGBoost model JSON and feature manifest produced by the notebook.
 
 ## Start here
 
@@ -37,6 +40,10 @@ python3 scripts/evaluate_wp.py
 ```
 
 The script evaluates nflfastR's `wp` (no spread) and `vegas_wp` (spread-adjusted) predictions against the eventual game winner, excluding ties because they do not have a binary winner label. It writes `results/wp_evaluation.csv` and `results/wp_calibration.csv`. Use `--seasons 2020 2021` to evaluate a smaller range or `--predictions wp` to score only one column.
+
+## Train or change the teaching model
+
+After installing `requirements.txt`, open `notebooks/train_wp.ipynb` in JupyterLab. The notebook uses season-level train/validation/test splits, keeps final outcome fields out of the features, trains an `XGBClassifier`, calls `evals.py` for BSS/AUC/KS and calibration, benchmarks the published nflfastR columns, and saves `artifacts/wp_xgboost.json` plus `artifacts/feature_schema.json`.
 
 ## Upstream sources
 

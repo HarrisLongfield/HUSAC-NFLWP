@@ -19,6 +19,14 @@ The first run used all 28 downloaded season files. It scored 1,214,344 valid pla
 
 These values are a baseline for the teaching demo, not a claim that the two columns are independent predictions: both are the published nflfastR outputs included in the PBP release.
 
+## 2026-09-28 — first training notebook
+
+- Added `notebooks/train_wp.ipynb` with preprocessing, feature engineering, season-based splits, XGBoost training with validation early stopping, benchmark comparison, and artifact export.
+- Added `evals.py` with Brier Skill Score (BSS), ROC AUC, KS, log loss, and an expected-probability-versus-actual calibration plot.
+- Executed the full notebook on 1999–2025 data. The 2024–2025 test set contained 92,619 play rows; the first model achieved BSS `0.4031`, AUC `0.8667`, and KS `0.5544` using the training win rate as the BSS reference.
+- On those same test seasons, the published nflfastR `wp` benchmark scored BSS `0.3425`, AUC `0.8362`, KS `0.4842`; published `vegas_wp` scored BSS `0.4084`, AUC `0.8688`, KS `0.5634`.
+- Saved the first teaching model to `artifacts/wp_xgboost.json` with its feature manifest and test calibration outputs under `results/`.
+
 ## Next teaching-demo milestones
 
 1. Run the first full evaluation and commit its summary output or a compact excerpt.

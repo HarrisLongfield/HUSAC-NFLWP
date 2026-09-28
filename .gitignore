@@ -3,6 +3,7 @@
 /data/raw/pbp/
 .venv/
 __pycache__/
+*.ipynb_checkpoints/
 
 # Local R / editor artifacts
 .Rhistory
