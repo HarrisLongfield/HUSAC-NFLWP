@@ -1,0 +1,11 @@
+# Downloaded upstream repositories and data are reproducible from the script.
+/external/
+/data/raw/pbp/
+.venv/
+__pycache__/
+
+# Local R / editor artifacts
+.Rhistory
+.RData
+.Rproj.user/
+.DS_Store

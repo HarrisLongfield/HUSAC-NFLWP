@@ -1,0 +1,2 @@
+# Used by scripts/evaluate_wp.py to read the local nflverse parquet files.
+pyarrow>=15.0
