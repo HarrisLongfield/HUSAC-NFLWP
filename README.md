@@ -1,6 +1,6 @@
-# NFL win probability teaching demo
+# NFL win probability 
 
-This project uses the open-source `nflfastR` win probability model as a starting point for teaching model building. It downloads the upstream model package and season-level NFL play-by-play data in parquet format, then trains and evaluates a compact XGBoost teaching model.
+This project uses the open-source `nflfastR` win probability model as a starting point for model building. It downloads the upstream model package and season-level NFL play-by-play data in parquet format, then trains and evaluates a compact XGBoost teaching model.
 
 ## Project layout
 
